@@ -1,0 +1,4 @@
+#Folders
+CountBank/
+src/__pycache__/
+sheets/*.csv
