@@ -1,4 +1,3 @@
-import pyfiglet
 import os
 from src.coutbank import Sistema
 
