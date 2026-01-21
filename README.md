@@ -8,9 +8,13 @@
 
  ## Funcionalidades
  [1] - CRIAR TABELAS .CSV PARA ARMAZENAR OS RECIBOS E DESPESAS CONFORME FOR ADCIONANDO.
+
  [2] - ADCIONAR RECIBOS (SÁLARIO, MESADA, DINHEIRO EXTRA, ETC).
- [3] - ADCIONAR DESPESAS (CONTAS, DIVÍDAS, ETC)
- [4] - VIZUALIZAR O BALANÇO FINAL ENTRE OS RECIBOS E DESPEZAS
+
+ [3] - ADCIONAR DESPESAS (CONTAS, DIVÍDAS, ETC).
+
+ [4] - VIZUALIZAR O BALANÇO FINAL ENTRE OS RECIBOS E DESPEZAS.
+ 
 
  # Como funciona
  O programa é rodado no terminal de forma interativa (ele executa os comandos que o usuário digitar) conforme
@@ -22,7 +26,7 @@
  [2] - Baixe esse repositorio e extraia ele.
 
  [3] - Entre no diretório onde os arquivos foram extraidos
- 
+
  [4] - Crie e ative seu ambiente virtual por meio dessas linhas de codigo (os codigos funcionaram para Linux/MAC, mas são similares para Windows também): 
  ```
     python3 -m  venv CountBank (Criar ambiente virtual)
