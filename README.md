@@ -18,8 +18,11 @@
 
  # Como rodar o Count Bank
  [1] - Tenha o python 3.12 instalado na sua máquina.
+
  [2] - Baixe esse repositorio e extraia ele.
+
  [3] - Entre no diretório onde os arquivos foram extraidos
+ 
  [4] - Crie e ative seu ambiente virtual por meio dessas linhas de codigo (os codigos funcionaram para Linux/MAC, mas são similares para Windows também): 
  ```
     python3 -m  venv CountBank (Criar ambiente virtual)
