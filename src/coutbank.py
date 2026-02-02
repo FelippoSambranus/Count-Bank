@@ -243,38 +243,38 @@ class Sistema:
             os.system("clear")
             self.menu_principal()
         else:
-            columns = ["Descricao", "Valor", "Tipo"]
-            with open(archive_path, "w") as file:
-                writer = csv.DictWriter(file, fieldnames=columns)
+            if (month_now == 1):
+                archive_path2 = f'sheets/planilha_12_{year_now - 1}.csv'
+            else:
+                archive_path2 = f'sheets/planilha_{month_now - 1}_{year_now}.csv'
 
-                if (month_now == 1):
-                    archive_path = f'../sheets/planilha_12_{year_now - 1}.csv'
-                else:
-                    archive_path = f'../sheets/planilha_{month_now - 1}_{year_now}.csv'
-
-                if (os.path.exists(archive_path)):
-                    ganho_total = 0
-                    despezas_total = 0
-                    with open(archive_path, "r") as file2:
+            ganho_total = 0
+            despezas_total = 0
+            if (os.path.exists(archive_path2)):
+                    with open(archive_path2, "r") as file2:
                             reader = csv.DictReader(file2)
 
                             for row in reader:
-                                if row["Tipo"] == "1":
+                                if (row["Tipo"] == "1"):
                                     ganho_total += float(row["Valor"])
                                 else:
                                     despezas_total += float(row["Valor"])
+            columns = ["Descricao", "Valor", "Tipo"]
+            with open(archive_path, "w") as file:
+                writer = csv.DictWriter(file, fieldnames=columns)
+                writer.writeheader()
                     
-                    add_row = {"Descricao": 0, "Valor": 0, "Tipo": 0}
-                    if (ganho_total - despezas_total) >= 0:
-                        add_row["Descricao"] = "SOBRA DE DINHEIRO MES PASSADO"
-                        add_row["Valor"] = ganho_total - despezas_total
-                        add_row["Tipo"] = 1
-                        writer.writerow(add_row)
-                    elif (ganho_total - despezas_total) < 0:
-                        add_row["Descricao"] = "DESPEZAS DO MES PASSADO"
-                        add_row["Valor"] = abs(ganho_total - despezas_total)
-                        add_row["Tipo"] = 2
-                        writer.writerow(add_row)
+                add_row = {"Descricao": 0, "Valor": 0, "Tipo": 0}
+                if (ganho_total - despezas_total) >= 0:
+                    add_row["Descricao"] = "SOBRA DE DINHEIRO MES PASSADO"
+                    add_row["Valor"] = ganho_total - despezas_total
+                    add_row["Tipo"] = 1
+                    writer.writerow(add_row)
+                elif (ganho_total - despezas_total) < 0:
+                    add_row["Descricao"] = "DESPEZAS DO MES PASSADO"
+                    add_row["Valor"] = abs(ganho_total - despezas_total)
+                    add_row["Tipo"] = 2
+                    writer.writerow(add_row)
             
             self.__interface.interface_criar_planilha()
             print("----------------------------------------------------------------")
